@@ -1,6 +1,6 @@
 # Modified-QuantStart-Backtester-With-Trading-Strategies
 
-This repository is based on a series of articles written by [Michael Halls-Moore](https://www.linkedin.com/in/michael-halls-moore-a275363/?originalSubdomain=hk):
+<p align="justify">This repository consists of an event-driven backtester, based on a series of articles written by [Michael Halls-Moore](https://www.linkedin.com/in/michael-halls-moore-a275363/?originalSubdomain=hk):</p>
 
 1. [Event-Driven Backtesting with Python - Part I](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-I)
 2. [Event-Driven Backtesting with Python - Part II](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-II)
@@ -9,6 +9,12 @@ This repository is based on a series of articles written by [Michael Halls-Moore
 5. [Event-Driven Backtesting with Python - Part V](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-V)
 6. [Event-Driven Backtesting with Python - Part VI](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-VI)
 7. [Event-Driven Backtesting with Python - Part VII](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-VII)
+
+
+
+<p align="justify">The code has been rewritten by hand, and modified for some parts. Some additions have also been added, such as handling data directly from a website (Yahoo Finance, CoinMarketCap) as well as treating data from a database.</p>
+
+<p align="justify">Some trading strategies have also been implemented
 
 
   
