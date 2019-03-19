@@ -17,10 +17,7 @@ This repository consists of an event-driven backtester, based on a series of art
 <p align="justify">Some additions have also been added:</p>
 
 <ul>
-    <li>'<em>ETF_data</em>' which is a univariate time series of the price history of the ETF.</li>
-    <li>'<em>Main.py</em>' which contains the main procedure, as well as the data pre-processing of the xlsx file 'ETF_data.xlsx'</li>
-    <li>'<em>Monte_Carlo_GBM.py</em>' which contains the different algorithms used for comparison.</li>
-<li><div align="justify">'<em>Post_processing.py</em>' where all the functions for post-processing (plots, information, descriptive statistics) are implemented.</div></li>
+  <li>'<mark>CVS</mark>
 <li><div align="justify">'<em>Analysis.pdf</em>', the PDF file where the different steps of the financial study are explained.</div></li>
 </ul>
 
