@@ -12,9 +12,17 @@ This repository consists of an event-driven backtester, based on a series of art
 
 
 
-<p align="justify">The code has been rewritten by hand, and modified for some parts. Some additions have also been added, such as handling data directly from a website (Yahoo Finance, CoinMarketCap) as well as treating data from a database.</p>
+<p align="justify">The code has been rewritten by hand, and modified for some parts. Indeed, copying and pasting the different parts of the code won't make the code run. The author gave the direction on how to implement a backtester, but some additional work is necessary to make the code function properly. 
+  
+<p align="justify">Some additions have also been added:</p>
 
-<p align="justify">Some trading strategies have also been implemented
+<ul>
+    <li>'<em>ETF_data</em>' which is a univariate time series of the price history of the ETF.</li>
+    <li>'<em>Main.py</em>' which contains the main procedure, as well as the data pre-processing of the xlsx file 'ETF_data.xlsx'</li>
+    <li>'<em>Monte_Carlo_GBM.py</em>' which contains the different algorithms used for comparison.</li>
+<li><div align="justify">'<em>Post_processing.py</em>' where all the functions for post-processing (plots, information, descriptive statistics) are implemented.</div></li>
+<li><div align="justify">'<em>Analysis.pdf</em>', the PDF file where the different steps of the financial study are explained.</div></li>
+</ul>
 
 
   
