@@ -17,7 +17,7 @@ This repository consists of an event-driven backtester, based on a series of art
 <p align="justify">Some additions have also been added:</p>
 
 <ul>
-  <li> <mark>CVS sddsddsd</mark></li>
+  <li> <code> csksjkjsd</code> </li>
 <li><div align="justify">'<em>Analysis.pdf</em>', the PDF file where the different steps of the financial study are explained.</div></li>
 </ul>
 
