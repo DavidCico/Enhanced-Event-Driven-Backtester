@@ -55,11 +55,31 @@ https://www.scipy.org/install.html
 
 ### File descriptions
 <ul>
-    <li><div align="justify">'<em>Backtester_loop.py</em>' in which the Backtest class hierarchy encapsulates the other classes, to carry out a nested while-loop event-driven system in order to handle the events placed on the Event Queue object.</div></li>
-    <li>'<em>Main.py</em>' which contains the main procedure, as well as the data pre-processing of the xlsx file 'ETF_data.xlsx'</li>
-    <li>'<em>Monte_Carlo_GBM.py</em>' which contains the different algorithms used for comparison.</li>
-<li><div align="justify">'<em>Post_processing.py</em>' where all the functions for post-processing (plots, information, descriptive statistics) are implemented.</div></li>
-<li><div align="justify">'<em>Analysis.pdf</em>', the PDF file where the different steps of the financial study are explained.</div></li>
+  
+<li><div align="justify">'<em>Backtester_loop.py</em>' in which the Backtest class hierarchy encapsulates the other classes, to carry out a nested while-loop event-driven system in order to handle the events placed on the Event Queue object.</div></li>
+    
+<li><div align="justify">'<em>DataHandler.py</em>' which defines a class that gives all subclasses an interface for providing market data to the remaining components within the system. Data can be obtained directly from the web, a database pr read from CSV files for instance.</div></li>
+
+<li><div align="justify">'<em>Events.py</em>' where four types of events (market, signal, order and fill), which allow communication between the above components via an event queue, are implemented.</div></li>
+
+<li><div align="justify">'<em>Execution.py</em>' to simulate the order handling mechanism and ultimately tie into a brokerage or other
+means of market connectivity.</div</li>
+
+<li><div align="justify">'<em>Main.py</em>' which is the main Python program, englobing all the different subroutines, and where the different parameters to initialize the backtesting simulations are specified.</div</li>
+
+<li><div align="justify">'<em>Performance.py</em>' in which performance assessment criteria are implemented such as the Sharpe ratio and drawdowns.</div</li>
+  
+<li><div align="justify">'<em>Plot_Performance.py</em>' to plot figures based on the equity curve obtained after backtesting.</div</li>
+  
+<li><div align="justify">'<em>Portfolio.py</em>' that keeps track of the positions within a portfolio and generates orders of a fixed quantity of stock based on signals.</div></li>
+
+<li><div align="justify">'<em>Strategy.py</em>' to generate a signal event from a particular strategy to communicate to the portfolio.</div></li>
+
+
+  
+
+
+
 </ul>
 
 ### Running the program
