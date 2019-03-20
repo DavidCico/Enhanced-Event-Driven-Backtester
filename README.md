@@ -75,6 +75,13 @@ means of market connectivity.</div</li>
 
 <li><div align="justify">'<em>Strategy.py</em>' to generate a signal event from a particular strategy to communicate to the portfolio.</div></li>
 
+<li><div align="justify">In the '<em>Strategies</em>' directory, different trading strategies are implemented to be used for backtesting:</div></li>
+
+  <ul>
+    <li><div align="justify">'<em>Buy_and_hold_strat.py</em>' in which a simple buy and hold strategy is coded.</div></li>
+  <li><div align="justify">'<em>Moving_average_crossover_strat.py</em>' to generate signals from simple moving averages.</div></li>
+  <li><div align="justify">'<em>ETF_forecast</em>' basic forecasting algorithm on ETF such as S&P500 using lagged price data</div></li>
+  </ul>
 
   
 
