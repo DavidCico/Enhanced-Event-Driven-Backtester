@@ -32,7 +32,7 @@ This repository consists of an event-driven backtester, based on a series of art
 
 ### Prerequisites
 
-<p align="justify">You need Python 3.x to run the following code.  You can have multiple Python versions (2.x and 3.x) installed on the same system without problems. Python needs to be first installed then SciPy, and finally Seaborn as there are dependencies on packages.</p>
+<p align="justify">You need <strong>Python 3.x</strong> to run the following code.  You can have multiple Python versions (2.x and 3.x) installed on the same system without problems. Python needs to be first installed then <strong>SciPy</strong> and <strong>pymysql</strong> as there are dependencies on packages.</p>
 
 In Ubuntu, Mint and Debian you can install Python 3 like this:
 
@@ -42,9 +42,9 @@ Alongside Python, the SciPy packages are also required. In Ubuntu and Debian, th
 
     sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 
-Finally, the latest release of Seaborn visualization package, which can be installed with pip:
+Finally, the pymysql package for connecting to MySQL databases using Python, which can be installed with pip:
     
-    pip install seaborn
+    pip install pymysql
 
 For other Linux flavors, OS X and Windows, packages are available at:
 
