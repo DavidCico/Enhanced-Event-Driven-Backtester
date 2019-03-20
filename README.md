@@ -22,6 +22,7 @@ This repository consists of an event-driven backtester, based on a series of art
   <li><div align="justify"><code>HistoricMySQLDataHandler</code> designed to read a MySQL database for each requested symbol from disk, and provides an interface to obtain the "latest" bar in a manner identical to a live trading interface.</div></li>
   <li><div align="justify"><code>MovingAverageCrossOverStrat</code> to carry out a basic Moving Average Crossover strategy with a
     short/long simple weighted moving average.</div></li>
+  <li><div align="justify"><code>ETFDailyForecastStrategy</code> to perform a prediction on an ETF price, based on previous daily prices (lag prices).</div></li> 
 </ul>
 
 
@@ -58,9 +59,9 @@ https://www.scipy.org/install.html
   
 <li><div align="justify">'<em>Backtester_loop.py</em>' in which the Backtest class hierarchy encapsulates the other classes, to carry out a nested while-loop event-driven system in order to handle the events placed on the Event Queue object.</div></li>
     
-<li><div align="justify">'<em>DataHandler.py</em>' which defines a class that gives all subclasses an interface for providing market data to the remaining components within the system. Data can be obtained directly from the web, a database pr read from CSV files for instance.</div></li>
+<li><div align="justify">'<em>DataHandler.py</em>' which defines a class that gives all subclasses an interface for providing market data to the remaining components within the system. Data can be obtained directly from the web, a database or be read from CSV files for instance.</div></li>
 
-<li><div align="justify">'<em>Events.py</em>' where four types of events (market, signal, order and fill), which allow communication between the above components via an event queue, are implemented.</div></li>
+<li><div align="justify">'<em>Events.py</em>' with four types of events (market, signal, order and fill), which allow communication between the above components via an event queue, are implemented.</div></li>
 
 <li><div align="justify">'<em>Execution.py</em>' to simulate the order handling mechanism and ultimately tie into a brokerage or other
 means of market connectivity.</div</li>
@@ -71,7 +72,7 @@ means of market connectivity.</div</li>
   
 <li><div align="justify">'<em>Plot_Performance.py</em>' to plot figures based on the equity curve obtained after backtesting.</div</li>
   
-<li><div align="justify">'<em>Portfolio.py</em>' that keeps track of the positions within a portfolio and generates orders of a fixed quantity of stock based on signals.</div></li>
+<li><div align="justify">'<em>Portfolio.py</em>' that keeps track of the positions within a portfolio, and generates orders of a fixed quantity of stock based on signals.</div></li>
 
 <li><div align="justify">'<em>Strategy.py</em>' to generate a signal event from a particular strategy to communicate to the portfolio.</div></li>
 
@@ -80,7 +81,7 @@ means of market connectivity.</div</li>
   <ul>
     <li><div align="justify">'<em>Buy_and_hold_strat.py</em>' in which a simple buy and hold strategy is coded.</div></li>
   <li><div align="justify">'<em>Moving_average_crossover_strat.py</em>' to generate signals from simple moving averages.</div></li>
-  <li><div align="justify">'<em>ETF_forecast</em>' basic forecasting algorithm on ETF such as S&P500 using lagged price data</div></li>
+  <li><div align="justify">'<em>ETF_forecast.py</em>' basic forecasting algorithm on ETF such as S&P500 using lagged price data</div></li>
   </ul>
 
   
@@ -111,7 +112,7 @@ backtest = Backtest(data_dir,  # data directory of CSV files
                         initial_capital, # initial capital available for trading
                         heartbeat, # heartbeat to count time in real live trading simulation
                         start_date, # starting time of the trading
-                        interval, # interval for between each data bar
+                        interval, # interval between each data bar
                         end_date, # ending time of trading for Yahoo finance data
                         YahooDataHandler, # data management method
                         SimpleSimulatedExecutionHandler, # Type of execution in relationship to broker
