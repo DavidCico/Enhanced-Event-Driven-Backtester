@@ -49,8 +49,8 @@ Finally, the pymysql package for connecting to MySQL databases using Python, whi
 For other Linux flavors, OS X and Windows, packages are available at:
 
 http://www.python.org/getit/  
-https://www.scipy.org/install.html  
-https://seaborn.pydata.org/installing.html#installing
+https://www.scipy.org/install.html
+
 
 
 ### File descriptions
