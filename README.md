@@ -55,7 +55,7 @@ https://www.scipy.org/install.html
 
 ### File descriptions
 <ul>
-    <li>'<em>ETF_data</em>' which is a univariate time series of the price history of the ETF.</li>
+    <li><div align="justify">'<em>Backtester_loop.py</em>' in which the Backtest class hierarchy encapsulates the other classes, to carry out a nested while-loop event-driven system in order to handle the events placed on the Event Queue object.</div></li>
     <li>'<em>Main.py</em>' which contains the main procedure, as well as the data pre-processing of the xlsx file 'ETF_data.xlsx'</li>
     <li>'<em>Monte_Carlo_GBM.py</em>' which contains the different algorithms used for comparison.</li>
 <li><div align="justify">'<em>Post_processing.py</em>' where all the functions for post-processing (plots, information, descriptive statistics) are implemented.</div></li>
