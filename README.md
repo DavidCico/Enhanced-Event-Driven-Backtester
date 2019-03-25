@@ -122,6 +122,9 @@ backtest = Backtest(data_dir,  # data directory of CSV files
 backtest.simulate_trading() 
 ```
 
+
+![GitHub Logo](https://drive.google.com/open?id=1ZXn1qY39ibx0gTgDWjG16lNnAcDKbLHC)
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/DavidCico/Modified-QuantStart-Backtester-With-Trading-Strategies/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
