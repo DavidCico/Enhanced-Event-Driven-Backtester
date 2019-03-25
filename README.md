@@ -122,6 +122,11 @@ backtest = Backtest(data_dir,  # data directory of CSV files
 backtest.simulate_trading() 
 ```
 
+<p align="justify">Running the backtester will generate a CSV file "equity.csv", with PnL curve, returns, drawdowns, etc. By running the following Python script, a plot can be generated to assess the strategy:</p>
+
+    python Plot_performance.py
+
+<p align="justify">The picture below shows an example with the parameters highlighted above.</p>
 
 ![Example_plot](Example.png)
 
