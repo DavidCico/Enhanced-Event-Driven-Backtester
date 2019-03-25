@@ -123,9 +123,8 @@ backtest.simulate_trading()
 ```
 
 
-![GitHub Logo]()
+![Example_plot](Example.png)
 
-<img src="https://drive.google.com/open?id=1ZXn1qY39ibx0gTgDWjG16lNnAcDKbLHC" alt="Italian Trulli">
 
 ## Contributing
 
