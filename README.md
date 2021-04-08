@@ -12,7 +12,7 @@ This repository consists of an event-driven backtester, based on a series of art
 
 
 
-<p align="justify">The code has been rewritten by hand, and modified for some parts. Indeed, copying and pasting the different parts of the code won't make the code run. The author gave the direction on how to implement a backtester, but some additional work was necessary to make the code function properly. 
+<p align="justify">The code has been rewritten by hand, modified and improved for most parts. Indeed, copying and pasting the different parts of the code won't make the code run. The author gave the direction on how to implement a backtester, but some additional work was necessary to make the code function properly. 
   
 <p align="justify">Some additions have also been added in terms of data handling and strategies implemented:</p>
 
