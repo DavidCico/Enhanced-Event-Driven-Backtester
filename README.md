@@ -20,7 +20,7 @@ This repository consists of an event-driven backtester, based on a series of art
   <li><div align="justify"><code>HistoricMySQLDataHandler</code> designed to read a MySQL database for each requested symbol from disk, and provides an interface to obtain the "latest" bar in a manner identical to a live trading interface.</div></li>
   <li><div align="justify"><code>MovingAverageCrossOverStrat</code> to carry out a basic Moving Average Crossover strategy with a
     short/long simple weighted moving average.</div></li>
-  <li><div align="justify"><code>ETFDailyForecastStrategy</code> to carry out a forecast prediction of the price of an ETF on the subsequent days, and enter/exit trades based on that prediction.</div></li>
+  <li><div align="justify"><code>ETFDailyForecastStrategy</code> to carry out a forecast prediction of the price of an ETF on next day, and enter/exit trades based on that prediction.</div></li>
 </ul>
 
 
