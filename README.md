@@ -40,6 +40,10 @@ In Ubuntu, Mint and Debian you can install Python 3 like this:
 Alongside Python, the SciPy packages are also required. In Ubuntu and Debian, the SciPy ecosystem can be installed by:
 
     sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+    
+The latest release of Scikit-Learn machine learning package, which can be installed with pip:
+    
+    pip install -U scikit-learn
 
 Finally, the pymysql package for connecting to MySQL databases using Python, which can be installed with pip:
     
@@ -49,6 +53,7 @@ For other Linux flavors, OS X and Windows, packages are available at:
 
 http://www.python.org/getit/  
 https://www.scipy.org/install.html
+https://scikit-learn.org/stable/install.html
 
 
 
