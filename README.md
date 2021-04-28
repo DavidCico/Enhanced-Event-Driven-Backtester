@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
 <p align="justify">Running the backtester will generate a CSV file "<em>equity.csv</em>", with PnL curve, returns, drawdowns, etc. By running the following Python script, a plot can be generated to assess the strategy:</p>
 
-    python Plot_performance.py
+    python PlotPerformance.py
 
 <p align="justify">The picture below shows an example with the parameters highlighted above.</p>
 
