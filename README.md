@@ -11,17 +11,16 @@ This repository consists of an event-driven backtester, based on a series of art
 7. [Event-Driven Backtesting with Python - Part VII](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-VII)
 
 
-
 <p align="justify">The code has been rewritten by hand, modified and improved for most parts. Indeed, copying and pasting the different parts of the code won't make the code run. The author gave the direction on how to implement a backtester, but some additional work was necessary to make the code function properly. 
   
 <p align="justify">Some additions have also been added in terms of data handling and strategies implemented:</p>
 
 <ul>
   <li><div align="justify"><code>YahooDataHandler</code> that allows to get data directly from Yahoo Finance website and update the latest "bar" in a live manner.</div></li>
-  <li><div align="justify"><code>CryptoCMCDataHandler</code> for cryptocurrency data, to communicate with the CoinMarketCap API and update the latest "bar" in a live manner.</div></li>
   <li><div align="justify"><code>HistoricMySQLDataHandler</code> designed to read a MySQL database for each requested symbol from disk, and provides an interface to obtain the "latest" bar in a manner identical to a live trading interface.</div></li>
   <li><div align="justify"><code>MovingAverageCrossOverStrat</code> to carry out a basic Moving Average Crossover strategy with a
     short/long simple weighted moving average.</div></li>
+  <li><div align="justify"><code>ETFDailyForecastStrategy</code> to carry out a forecast prediction of the price of an ETF on the subsequent days, and enter/exit trades based on that prediction.</div></li>
 </ul>
 
 
@@ -56,7 +55,7 @@ https://www.scipy.org/install.html
 ### File descriptions
 <ul>
   
-<li><div align="justify">'<em>Backtester_loop.py</em>' in which the Backtest class hierarchy encapsulates the other classes, to carry out a nested while-loop event-driven system in order to handle the events placed on the Event Queue object.</div></li>
+<li><div align="justify">'<em>BacktesterLoop.py</em>' in which the Backtest class hierarchy encapsulates the other classes, to carry out a nested while-loop event-driven system in order to handle the events placed on the Event Queue object.</div></li>
     
 <li><div align="justify">'<em>DataHandler.py</em>' which defines a class that gives all subclasses an interface for providing market data to the remaining components within the system. Data can be obtained directly from the web, a database or be read from CSV files for instance.</div></li>
 
@@ -69,7 +68,7 @@ means of market connectivity.</div</li>
 
 <li><div align="justify">'<em>Performance.py</em>' in which performance assessment criteria are implemented such as the Sharpe ratio and drawdowns.</div</li>
   
-<li><div align="justify">'<em>Plot_Performance.py</em>' to plot figures based on the equity curve obtained after backtesting.</div</li>
+<li><div align="justify">'<em>PlotPerformance.py</em>' to plot figures based on the equity curve obtained after backtesting.</div</li>
   
 <li><div align="justify">'<em>Portfolio.py</em>' that keeps track of the positions within a portfolio, and generates orders of a fixed quantity of stock based on signals.</div></li>
 
@@ -78,8 +77,10 @@ means of market connectivity.</div</li>
 <li><div align="justify">In the '<em>Strategies</em>' directory, different trading strategies are implemented to be used for backtesting:</div></li>
 
   <ul>
-    <li><div align="justify">'<em>Buy_and_hold_strat.py</em>' in which a simple buy and hold strategy is coded.</div></li>
-  <li><div align="justify">'<em>Moving_average_crossover_strat.py</em>' to generate signals from simple moving averages.</div></li>
+    <li><div align="justify">'<em>Buy_And_Hold_Strat.py</em>' in which a simple buy and hold strategy is coded.</div></li>
+  <li><div align="justify">'<em>MAC_Strat.py</em>' to generate signals from simple moving averages.</div></li>
+  <li><div align="justify">'<em>CreateLaggedSeries.py</em>' to create lagged timeseries, to be used in the ETF forecast strategy (helper function).</div></li>
+  <li><div align="justify">'<em>ETF_Forecast.py</em>' to generate signals on the current from previous days prices of an ETF.</div></li>
   </ul>
 
   
@@ -97,27 +98,28 @@ The different "<em>.py</em>" files need to be placed in the same folder for the 
 <p align="justify">The code is well commented and easy to understand. The different parameters calculated and used for the simulations are:</p>
 
 ``` python
-data_dir = 'C:/Users/EC-PM-3/Desktop/Quant_Data_science/Backtester_model/Data_directory' # Needs to be specified based on your own path
-symbol_list = ['AAPL']
-initial_capital = 100000.0
-start_date = datetime(2016,1,1,0,0,0)
-interval ="1d"
-end_date = datetime(2018,1,1,0,0,0)
-heartbeat = 0.0
+if __name__ == "__main__":
+    data_dir = Path.cwd() / 'DataDir'  # For reading from CSV files
+    symbol_list = ['^OEX']
+    initial_capital = 100000.0
+    start_date = datetime(2016, 1, 1, 0, 0, 0)
+    end_date = datetime(2021, 1, 1, 0, 0, 0)
+    interval = '1d'
+    heartbeat = 0.0  # necessary for live feed
 
-backtest = Backtest(data_dir,  # data directory of CSV files
+    backtest = Backtest(data_dir,  # data directory of CSV files
                         symbol_list,  # list of symbols
-                        initial_capital, # initial capital available for trading
-                        heartbeat, # heartbeat to count time in real live trading simulation
-                        start_date, # starting time of the trading
-                        interval, # interval between each data bar
-                        end_date, # ending time of trading for Yahoo finance data
-                        YahooDataHandler, # data management method
-                        SimpleSimulatedExecutionHandler, # Type of execution in relationship to broker
-                        Portfolio, # portfolio management method
-                        MovingAverageCrossOverStrat) # strategy chosen
-    
-backtest.simulate_trading() 
+                        initial_capital,  # initial capital available for trading
+                        heartbeat,  # heartbeat to count time in real live trading simulation
+                        start_date,  # starting time of the trading
+                        end_date,  # ending time of the trading
+                        interval,  # interval of the data
+                        YahooDataHandler,  # data management method
+                        SimpleSimulatedExecutionHandler,  # Type of execution in relationship to broker
+                        Portfolio,  # portfolio management method
+                        ETFDailyForecastStrategy)  # strategy chosen
+
+    backtest.simulate_trading()
 ```
 
 <p align="justify">Running the backtester will generate a CSV file "<em>equity.csv</em>", with PnL curve, returns, drawdowns, etc. By running the following Python script, a plot can be generated to assess the strategy:</p>
