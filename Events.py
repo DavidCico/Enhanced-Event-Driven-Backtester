@@ -21,54 +21,36 @@ class MarketEvent(Event):
 
 class SignalEvent(Event):
     """
-    Handles the event of sending a Signal from a Strategy object.
-    This is received by a Portfolio object and acted upon.
-    """
-    
-    def __init__(self, symbol, datetime, signal_type, strength):
-        """
-        Initialises the SignalEvent.
+    Signal event generated from a particular strategy, if signal met strategy conditions
 
-        Parameters:
-        strategy_id - The unique identifier for the strategy that
-        generated the signal.
-        symbol - The ticker symbol, e.g. "GOOG".
-        datetime - The timestamp at which the signal was generated.
-        signal_type - "LONG","SHORT", "EXIT", etc
-        strength - An adjustment factor "suggestion" used to scale
-        quantity at the portfolio level. Useful for pairs strategies.
-        """
-        
+    Parameters:
+    symbol - The symbol for current asset.
+    datetime - A datetime at which the signal is generated.
+    signal_type - The signal type ('LONG', 'SHORT', 'EXIT')
+    strength - strength of the signal --> TODO: this should be given from a risk class when applying multiple strats
+    """
+
+    def __init__(self, symbol, datetime, signal_type, strength):
         self.type = "SIGNAL"
         self.symbol = symbol
         self.datetime = datetime
         self.signal_type = signal_type
         self.strength = strength
 
-        
-
 
 class OrderEvent(Event):
     """
-    Handles the event of sending an Order to an execution system.
-    The order contains a symbol (e.g. GOOG), a type (market or limit),
-    quantity and a direction.
+    Order event to be sent to a broker api. It takes into account the quantity,
+    type of ordering, and direction (long, short, exit...)
+
+    Parameters:
+    symbol - The symbol for current asset.
+    order_type - Whether is it a 'MARKET' or 'LIMIT' order
+    quantity --> TODO: this should be implemented in a risk class (Kelly Criterion, etc)
+    direction - 1 or -1 based on the type
     """
 
     def __init__(self, symbol, order_type, quantity, direction):
-        """
-        Initialises the order type, setting whether it is
-        a Market order ("MKT") or Limit order ("LMT"), has
-        a quantity (integral) and its direction ("BUY" or
-        "SELL").
-
-        Parameters:
-        symbol - The instrument to trade.
-        order_type - "MKT" or "LMT" for Market or Limit.
-        quantity - Non-negative integer for quantity.
-        direction - "BUY" or "SELL" for long or short.
-        """
-        
         self.type = "ORDER"
         self.symbol = symbol
         self.order_type = order_type
@@ -80,40 +62,27 @@ class OrderEvent(Event):
         Outputs the values within the Order.
         """
         print("Order: Symbol=%s, Type=%s, Quantity=%s, Direction=%s") % \
-            (self.symbol, self.order_type, self.quantity, self.direction)
-
+        (self.symbol, self.order_type, self.quantity, self.direction)
 
 
 class FillEvent(Event):
     """
-    Encapsulates the notion of a Filled Order, as returned
-    from a brokerage. Stores the quantity of an instrument
-    actually filled and at what price. In addition, stores
-    the commission of the trade from the brokerage.
+    Fill event once an order based on the response from the broker
+
+    Parameters:
+    datetime - A datetime at which the signal is created.
+    symbol - The symbol for current asset.
+    exchange - The exchange, broker where the order is filled
+    quantity - quantity filled
+    direction
+    fill_cost - can contain commission already
+    commission - Defaulted to None if non specified
     """
 
-    def __init__(self, timeindex, symbol, exchange, quantity, direction, fill_cost, commission=None):
-        """
-        Initialises the FillEvent object. Sets the symbol, exchange,
-        quantity, direction, cost of fill and an optional 
-        commission.
+    def __init__(self, datetime, symbol, exchange, quantity, direction, fill_cost, commission=None):
 
-        If commission is not provided, the Fill object will
-        calculate it based on the trade size and Interactive
-        Brokers fees.
-
-        Parameters:
-        timeindex - The bar-resolution when the order was filled.
-        symbol - The instrument which was filled.
-        exchange - The exchange where the order was filled.
-        quantity - The filled quantity.
-        direction - The direction of fill ("BUY" or "SELL")
-        fill_cost - The holdings value in dollars.
-        commission - An optional commission sent from IB.
-        """
-        
         self.type = "FILL"
-        self.timeindex = timeindex
+        self.datetime = datetime
         self.symbol = symbol
         self.exchange = exchange
         self.quantity = quantity
@@ -122,23 +91,13 @@ class FillEvent(Event):
 
         # Calculate commission
         if commission is None:
-            self.commission = self.calculate_ib_commission()
+            self.commission = self._calculate_commission()
         else:
             self.commission = commission
 
-    def calculate_ib_commission(self):
+    def _calculate_commission(self):
         """
-        Calculates the fees of trading based on an Interactive
-        Brokers fee structure for API, in USD.
-
-        This does not include exchange or ECN fees.
-
-        Based on "US API Directed Orders":
-        https://www.interactivebrokers.com/en/index.php?f=commission&p=stocks2
+        TODO: Commission fees to be implemented
         """
-        commission_fees = 1.3
-        if self.quantity <= 500:
-            commission_fees = max(1.3, 0.013 * self.quantity)
-        else: # Greater than 500
-            commission_fees = max(1.3, 0.008 * self.quantity)
-        return commission_fees
+        # between 1 and 2%
+        return max(1.5, 0.015 * self.quantity)
