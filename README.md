@@ -1,21 +1,18 @@
 # Modified-QuantStart-Backtester-With-Trading-Strategies
 
-This repository consists of an event-driven backtester, based on a series of articles written by <strong>Michael Halls-Moore</strong> from the [QuantStart](http://www.quantstart.com/) website.
+<p align="justify">This repository consists of an event-driven backtester, based on a series of articles written by <strong>Michael Halls-Moore</strong> from the [QuantStart](http://www.quantstart.com/) website.</p>
 
-<p align="justify">The code has been rewritten by hand, modified and improved for most parts. Indeed, copying and pasting the different parts of the code won't make the code run. The author gave the direction on how to implement a backtester, but some additional work was necessary to make the code function properly. 
+<p align="justify">The code has been rewritten by hand, modified and improved for most parts. The author gave the direction on how to implement a backtester, but some additional work was necessary to make the code function properly. 
   
 <p align="justify">Some additions have also been added in terms of data handling and strategies implemented:</p>
 
 <ul>
   <li><div align="justify"><code>YahooDataHandler</code> that allows to get data directly from Yahoo Finance website and update the latest "bar" in a live manner.</div></li>
   <li><div align="justify"><code>HistoricMySQLDataHandler</code> designed to read a MySQL database for each requested symbol from disk, and provides an interface to obtain the "latest" bar in a manner identical to a live trading interface.</div></li>
-  <li><div align="justify"><code>MovingAverageCrossOverStrat</code> to carry out a basic Moving Average Crossover strategy with a
-    short/long simple weighted moving average.</div></li>
+  <li><div align="justify"><code>MovingAverageCrossOverStrat</code> to carry out a basic Moving Average Crossover strategy with a short/long simple weighted moving average.</div></li>
   <li><div align="justify"><code>ETFDailyForecastStrategy</code> to carry out a forecast prediction of the price of an ETF on next day, and enter/exit trades based on that prediction.</div></li>
 </ul>
 
-
-  
 ## Getting Started
 
 <p align="justify">These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.</p>
