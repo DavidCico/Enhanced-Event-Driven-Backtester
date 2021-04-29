@@ -1,4 +1,4 @@
-# Modified-QuantStart-Backtester-With-Trading-Strategies
+# Enhanced-QuantStart-Backtester-With-Some-Trading-Strategies
 
 <p align="justify">This repository consists of an event-driven backtester, based on a series of articles written by <strong>Michael Halls-Moore</strong> from the <a href="http://www.quantstart.com/">QuantStart</a> website.</p>
 
