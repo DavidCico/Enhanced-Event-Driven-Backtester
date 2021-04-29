@@ -45,15 +45,20 @@ The latest release of Scikit-Learn machine learning package, which can be instal
     
     pip install -U scikit-learn
 
-Finally, the pymysql package for connecting to MySQL databases using Python, which can be installed with pip:
+The pymysql package for connecting to MySQL databases using Python, which can be installed with pip:
     
     pip install pymysql
 
+For getting the data of price timeseries from Yahoo Finance, we use the yfinance package that can be installed using the pip package manager:
+
+    pip install yfinance
+
 For other Linux flavors, OS X and Windows, packages are available at:
 
-http://www.python.org/getit/  
-https://www.scipy.org/install.html <br>
-https://scikit-learn.org/stable/install.html
+http://www.python.org/getit/ for Python    
+https://www.scipy.org/install.html for the SciPy ecosystem </br>
+https://scikit-learn.org/stable/install.html for Scikit-Learn </br>
+https://pypi.org/project/yfinance/ for the yfinance module 
 
 
 
