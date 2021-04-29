@@ -82,6 +82,8 @@ means of market connectivity.</div</li>
   
 <li><div align="justify">'<em>Portfolio.py</em>' that keeps track of the positions within a portfolio, and generates orders of a fixed quantity of stock based on signals.</div></li>
 
+<li><div align="justify">'<em>RiskManagement.py</em>' which would be the class for implementing risk management measures, as its name suggests such as VaR calculation, Kelly criterion for position sizing, etc.</div></li>
+
 <li><div align="justify">'<em>Strategy.py</em>' to generate a signal event from a particular strategy to communicate to the portfolio.</div></li>
 
 <li><div align="justify">In the '<em>Strategies</em>' directory, different trading strategies are implemented to be used for backtesting:</div></li>
