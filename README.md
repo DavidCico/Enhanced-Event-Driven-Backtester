@@ -1,15 +1,6 @@
 # Modified-QuantStart-Backtester-With-Trading-Strategies
 
-This repository consists of an event-driven backtester, based on a series of articles written by <strong>Michael Halls-Moore</strong>:
-
-1. [Event-Driven Backtesting with Python - Part I](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-I)
-2. [Event-Driven Backtesting with Python - Part II](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-II)
-3. [Event-Driven Backtesting with Python - Part III](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-III)
-4. [Event-Driven Backtesting with Python - Part IV](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-IV)
-5. [Event-Driven Backtesting with Python - Part V](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-V)
-6. [Event-Driven Backtesting with Python - Part VI](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-VI)
-7. [Event-Driven Backtesting with Python - Part VII](http://www.quantstart.com/articles/Event-Driven-Backtesting-with-Python-Part-VII)
-
+This repository consists of an event-driven backtester, based on a series of articles written by <strong>Michael Halls-Moore</strong> from the [QuantStart](http://www.quantstart.com/) website.
 
 <p align="justify">The code has been rewritten by hand, modified and improved for most parts. Indeed, copying and pasting the different parts of the code won't make the code run. The author gave the direction on how to implement a backtester, but some additional work was necessary to make the code function properly. 
   
