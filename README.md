@@ -81,6 +81,7 @@ means of market connectivity.</div</li>
   <li><div align="justify">'<em>MAC_Strat.py</em>' to generate signals from simple moving averages.</div></li>
   <li><div align="justify">'<em>CreateLaggedSeries.py</em>' to create lagged timeseries, to be used in the ETF forecast strategy (helper function).</div></li>
   <li><div align="justify">'<em>ETF_Forecast.py</em>' to generate signals on the current from previous days prices of an ETF.</div></li>
+  <li><div align="justify">'<em>OLS_MR_Strategy.py</em>' to generate signals on a trading pair (required to follow a mean reversion pattern), using rolling OLS method to find the best hedging ratio between 2 assets timeseries. Position signals are then generated based on exceeding z_scores, whether we are currently having positions in the market, or needing to exit. </div></li>
   </ul>
 
   
