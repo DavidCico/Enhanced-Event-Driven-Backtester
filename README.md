@@ -11,6 +11,8 @@
   <li><div align="justify"><code>HistoricMySQLDataHandler</code> designed to read a MySQL database for each requested symbol from disk, and provides an interface to obtain the "latest" bar in a manner identical to a live trading interface.</div></li>
   <li><div align="justify"><code>MovingAverageCrossOverStrat</code> to carry out a basic Moving Average Crossover strategy with a short/long simple weighted moving average.</div></li>
   <li><div align="justify"><code>ETFDailyForecastStrategy</code> to carry out a forecast prediction of the price of an ETF on next day, and enter/exit trades based on that prediction.</div></li>
+  <li><div align="justify"><code>OLSMRStratedy</code> to generate signals on a trading pair (should follow a mean reversion pattern to be tested), using rolling OLS method to find the best hedging ratio between 2 assets timeseries. Position signals are then generated based on exceeding z_scores, whether we are currently having positions in the market, or needing to exit.</div></li>
+  
 </ul>
 
 ## Getting Started
@@ -81,7 +83,7 @@ means of market connectivity.</div</li>
   <li><div align="justify">'<em>MAC_Strat.py</em>' to generate signals from simple moving averages.</div></li>
   <li><div align="justify">'<em>CreateLaggedSeries.py</em>' to create lagged timeseries, to be used in the ETF forecast strategy (helper function).</div></li>
   <li><div align="justify">'<em>ETF_Forecast.py</em>' to generate signals on the current from previous days prices of an ETF.</div></li>
-  <li><div align="justify">'<em>OLS_MR_Strategy.py</em>' to generate signals on a trading pair (required to follow a mean reversion pattern), using rolling OLS method to find the best hedging ratio between 2 assets timeseries. Position signals are then generated based on exceeding z_scores, whether we are currently having positions in the market, or needing to exit. </div></li>
+  <li><div align="justify">'<em>OLS_MR_Strategy.py</em>' to generate signals on a trading pair following a mean reversion pattern. </div></li>
   </ul>
 
   
