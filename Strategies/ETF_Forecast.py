@@ -3,7 +3,7 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from Strategy import Strategy
 from Events import SignalEvent
 from Events import MarketEvent
-from Strategies.CreateLaggedSeries import create_lagged_series
+from Strategies.Helper.CreateLaggedSeries import create_lagged_series
 
 from datetime import datetime
 
